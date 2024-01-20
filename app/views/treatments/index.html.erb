@@ -1,0 +1,11 @@
+<ul>
+  <% @treatments.each do |treatment| %>
+    <a href="/treatments/<%= treatment.id %>" style="text-decoration:none">
+    <li>
+      
+        <%= treatment.treatmentName %>
+      
+    </li>
+    </a>
+  <% end %>
+</ul>
