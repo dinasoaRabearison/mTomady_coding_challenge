@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 
   get "/clinic", to: "clinic#index"
 
-  get "/treatments", to: "treatments#index"
-
-  get "/treatments/:id", to: "treatments#show"
+  resources :treatments
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
