@@ -1,0 +1,28 @@
+<%= form_with(model: @patients, url:"user_patients_url()") do |form| %>
+  <div>
+    <%= form.label :patient %><br>
+    <%= form.text_field :patient %>
+  </div>
+  <div>
+    <%= form.label :treatment_id %><br>
+    <select name="patient[treatment_id]" id="patient_treatment_id">
+      <% @categorys.each do |category| %>
+        
+          <optgroup label=<%= category.categoryName %> >
+            
+          <% category.treatments.each do |treatment| %>
+            <option value=<%= treatment.id %> >
+              <%= treatment.treatmentName %>
+            </option>
+          <%end %>
+          </optgroup>
+        
+      <% end %>
+    </select>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+
+  
+<% end %>

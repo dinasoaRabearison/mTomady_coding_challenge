@@ -2,8 +2,15 @@ Rails.application.routes.draw do
   root "clinic#index"
 
   get "/clinic", to: "clinic#index"
+  
+  namespace :user do
+    resources :treatments, only: [:index, :show]
+    resources :patients
+  end
 
-  resources :treatments
+  namespace :admin do
+    resources :treatments, only: [:index, :show, :edit, :update]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,0 +1,10 @@
+<h1>Your selections</h1>
+<p><%= @Patient.patientName %>, you have selected</p>
+<ol>
+  <% @Patient.treatements.each do |treatment| %>
+    <li>
+      <%= treatement.treatementName %>
+    </li>
+  <% end %>
+</ol>
+

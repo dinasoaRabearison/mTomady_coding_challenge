@@ -1,0 +1,15 @@
+
+<select>
+  <% @categorys.each do |category| %>
+    
+      <optgroup label=<%= category.categoryName %> >
+        
+      <% category.treatments.each do |treatment| %>
+        <option value=<%= treatment.treatmentName %> >
+          <%= treatment.treatmentName %>
+        </option>
+      <%end %>
+      </optgroup>
+    
+  <% end %>
+</select>
