@@ -1,9 +1,9 @@
 <h1>Your selections</h1>
-<p><%= @Patient.patientName %>, you have selected</p>
+<p><%= @Patients.patientName %>, you have selected</p>
 <ol>
-  <% @Patient.treatements.each do |treatment| %>
+  <% @Patients.selections.each do |selection| %>
     <li>
-      <%= treatement.treatementName %>
+      <%= selection.treatment.treatmentName %>
     </li>
   <% end %>
 </ol>

@@ -1,3 +1,11 @@
 <h3>
   <%= @treatment.treatmentName %>
 </h3>
+<h4>Translations</h4>
+<ul>
+  <% @treatment.translations.each do |translation| %>
+    <li>
+      <%= translation.translationLanguage %> : <%= translation.translationValue %>
+    </li>
+  <% end %>
+</ul>

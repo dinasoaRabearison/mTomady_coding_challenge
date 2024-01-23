@@ -1,0 +1,19 @@
+<h1>Update this translation</h1>
+<%= form_with model: @translation |form| %>
+    <%= form.hidden_field :treatment_id, value: @treatment.id %>
+    <h4>Treatment : <%= @treatment.treatmentName %></h4>
+    <div>
+      <%= form.label :translationLanguage, "Language" %>
+      <%= form.select :translationLanguage, ["French", "Malagasy"] %>
+    </div>
+    <div>
+      <%= form.label :translationValue, "Translation" %>
+      <%= form.text_field :translationValue, placeholder: "Write the translation of the treatment here" %>
+      <% @translation.errors.full_messages_for(:translationValue).each do |message| %>
+          <div><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.submit "Translate" %>
+    </div>
+  <% end %>

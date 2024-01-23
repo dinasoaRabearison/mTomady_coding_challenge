@@ -1,15 +1,20 @@
 
-<select>
-  <% @categorys.each do |category| %>
-    
-      <optgroup label=<%= category.categoryName %> >
-        
-      <% category.treatments.each do |treatment| %>
-        <option value=<%= treatment.treatmentName %> >
-          <%= treatment.treatmentName %>
-        </option>
-      <%end %>
-      </optgroup>
-    
+<h1>Clinic treatments list</h1>
+<ul>
+  <% @categorys.each do |category|  %>
+    <li>
+      <h3><%= category.categoryName %></h3>
+      <ul>
+        <% @treatments.each do |treatment| %>
+          <% if treatment.category_id == category.id %>
+            <li>
+              # <a href="/admin/translations/new/<%= treatment.id %>">
+                <%= link_to treatment.treatmentName, new_admin_translation_url(id:treatment.id) %>
+              # </a>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </li>
   <% end %>
-</select>
+</ul>

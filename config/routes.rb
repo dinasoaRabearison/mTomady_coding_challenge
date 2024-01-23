@@ -4,12 +4,28 @@ Rails.application.routes.draw do
   get "/clinic", to: "clinic#index"
   
   namespace :user do
+    get 'translations/index'
+    get 'translations/show'
+    get 'translations/create'
+    get 'translations/new'
+    get 'translations/edit'
+    get 'translations/update'
+    get 'translations/destroy'
+    post "patients", to: "patients#create"
     resources :treatments, only: [:index, :show]
     resources :patients
   end
 
   namespace :admin do
-    resources :treatments, only: [:index, :show, :edit, :update]
+    # get '/translations/show', to: "translations#show"
+    # get '/translations/new/:id', to: "translations#new"
+    # post '/translations/create', to: "translations#create"
+    # get '/translations/edit/:id', to: "translations#edit"
+    # put '/translations/update', to: "translations#update"
+    # delete '/translations/destroy', to: "translations#destroy"
+    resources :translations
+    get "/treatments", to: "treatments#index"
+    resources :treatments, only: [ :show, :edit, :update]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
