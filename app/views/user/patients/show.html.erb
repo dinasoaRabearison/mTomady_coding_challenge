@@ -3,8 +3,14 @@
 <ol>
   <% @Patients.selections.each do |selection| %>
     <li>
-      <%= selection.treatment.treatmentName %>
-    </li>
+      <%= render("/user/treatments/treatmentName", translations: @translations, treatment: selection.treatment, locale: @locale) %> the 
+      <%= "%02d" % selection.created_at.day() %> 
+      <%= selection.created_at.strftime("%B") %> 
+      <%= selection.created_at.year() %> at 
+      <%= "%02d" % selection.created_at.hour() %>:<%= "%02d" % selection.created_at.min()%>
+      </li>
+      
   <% end %>
 </ol>
+<%= link_to "Back to treatments selection list", user_treatments_url() %>
 

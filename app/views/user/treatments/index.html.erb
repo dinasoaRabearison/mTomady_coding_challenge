@@ -7,7 +7,7 @@
         <% @treatments.each do |treatment| %>
           <% if treatment.category_id == category.id %>
             <li>
-              <%= link_to treatment.treatmentName, new_user_treatment_url(id:treatment.id) %>
+              <%= link_to render("treatmentName", translations: @translations, treatment: treatment, locale: @locale), new_user_treatment_url(id:treatment.id) %>
             </li>
           <% end %>
         <% end %>
@@ -15,3 +15,8 @@
     </li>
   <% end %>
 </ul>
+<div>
+  <p>
+   Or if you want to see you selection, you can <%= link_to "log in here", user_patients_url() %>
+  </p>
+</div>

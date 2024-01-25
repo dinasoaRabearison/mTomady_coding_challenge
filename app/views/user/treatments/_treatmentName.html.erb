@@ -1,0 +1,3 @@
+<%= (translations.find_by(treatment_id: treatment.id, translationLanguage: locale))?
+              translations.find_by(treatment_id: treatment.id, translationLanguage: locale).translationValue:
+              treatment.treatmentName %>

@@ -1,28 +1,13 @@
+<h3>Hello ! Here you can see your selections by giving your name</h3>
 <%= form_with model: @patients, url:"/user/patients", method: :post do |form| %>
-    <div>
-      <%= form.label :patientName %><br>
-      <%= form.text_field :patientName %>
-    </div>
-    <div>
-      <%= form.label :id %><br>
-      <select name="patient[id]" id="id">
-        <% @categorys.each do |category| %>
-          
-            <optgroup label=<%= category.categoryName %> >
-              
-            <% category.treatments.each do |treatment| %>
-              <option value=<%= treatment.id %> >
-                <%= treatment.treatmentName %>
-              </option>
-            <%end %>
-            </optgroup>
-          
-        <% end %>
-      </select>
-    </div>
-    <div>
-      <%= form.submit %>
-    </div>
-  
-    
-  <% end %>
+  <div>
+    <%= form.label :patientName, value: "Your name" %><br>
+    <%= form.text_field :patientName, size: "40x5", placeholder: "Write your name here", required: true %>
+  </div>
+  <div>
+    <%= form.submit "Show my selections" %>
+  </div>
+<% end %>
+<div>
+  <p>If it's the first time you are here, you can <%= link_to "select a treatment here", user_treatments_url() %></p>
+</div>
