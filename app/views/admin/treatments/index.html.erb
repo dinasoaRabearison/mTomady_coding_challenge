@@ -8,9 +8,7 @@
         <% @treatments.each do |treatment| %>
           <% if treatment.category_id == category.id %>
             <li>
-              # <a href="/admin/translations/new/<%= treatment.id %>">
-                <%= link_to treatment.treatmentName, new_admin_translation_url(id:treatment.id) %>
-              # </a>
+              <%= link_to treatment.treatmentName, admin_treatment_url(id:treatment.id) %>
             </li>
           <% end %>
         <% end %>

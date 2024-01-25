@@ -1,0 +1,14 @@
+<%= form_with model: [:user, treatment],url: link, method: verb do |form| %>
+  <%= form.hidden_field :id, value: treatment.id %>
+  <div>
+    <%= form.label :patientName, value="Username" %><br>
+    <%= form.text_field :patientName, size: "40x5", placeholder: "Write your name here", required: true %>
+  </div>
+  <div>
+    <%= form.label :treatmentName, value:"The selected treatment" %><br>
+    <%= form.text_field :treatmentName, value: treatment.treatmentName, disabled: true %>
+  </div>
+  <div>
+    <%= form.submit "Confirm selection" %>
+  </div>
+<% end %>

@@ -1,0 +1,3 @@
+<h1>Confirm your selection</h1>
+<%= render "form", treatment: @treatment, patients: @patient, link: "/user/treatments",  verb: "post" %>
+<%= link_to "back to treatments list", user_treatments_url() %>

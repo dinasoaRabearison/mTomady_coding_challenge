@@ -9,3 +9,5 @@
     </li>
   <% end %>
 </ul>
+<%= link_to "Add translation", new_admin_translation_url(id: @treatment.id) %>
+<%= link_to "Back to treatments list", admin_treatments_url() %>
