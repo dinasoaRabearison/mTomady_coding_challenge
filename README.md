@@ -105,7 +105,7 @@ AC4:
 As a User
 I can select a category, and then see all the treatments that belong to that category.
 
-#Clinic application manual
+## Application user/admin guide
 
 This application is in full ruby on rails and use Active records default database and models migration.
 For the front-end, it's just HTML and Bootstrap
