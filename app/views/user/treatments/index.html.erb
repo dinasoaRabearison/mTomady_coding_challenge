@@ -1,21 +1,42 @@
-<h1>Clinic treatments list</h1>
-<ul class="container">
+<section class="container-fluid row">
+  <h1>Clinic treatments list</h1>
+  <p>Please select one in the right</p>
+</section>
+<section class="container-fluid row">
+  <ul class="list-group-flush row">
+  <li class="list-group-item mb-3">
+      <div class="row g-0">
+        <div class="col-md-2">
+          <h3 class="rw-bold">Category</h3>
+        </div>
+        <div class="col-md-8">
+          <h3 class="rw-bold">Treatments</h3>
+        </div>
+      </div>
+  </li>
   <% @categorys.each do |category|  %>
-    <li>
-      <h3><%= category.categoryName %></h3>
-      <ul>
-        <% @treatments.each do |treatment| %>
-          <% if treatment.category_id == category.id %>
-            <li>
-              <%= link_to render("treatmentName", translations: @translations, treatment: treatment, locale: @locale), new_user_treatment_url(id:treatment.id) %>
-            </li>
+    <li class="list-group-item mb-3">
+      <div class="row g-0">
+        <div class="col-md-2">
+          <h6 class="rw-bold"><%= category.categoryName %></h6>
+        </div>
+        <div class="col-md-8">
+          
+          <div class="list-group-flush">
+          <% @treatments.each do |treatment| %>
+            <% if treatment.category_id == category.id %>
+              <%= link_to render("treatmentName", translations: @translations, treatment: treatment, locale: @locale), new_user_treatment_url(id:treatment.id), class:"list-group-item list-group-item-action" %>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
+          </div>
+        </div>
+      </div>
     </li>
   <% end %>
-</ul>
-<div>
+  </ul>
+</section>
+
+<section class="container-fluid row">
   <p>
    Or if you want to see you selection, you can <%= link_to "log in here", user_patients_url() %>
   </p>
