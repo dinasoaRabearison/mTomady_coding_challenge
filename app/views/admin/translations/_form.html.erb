@@ -1,18 +1,20 @@
-<%= form_with model: [:admin, translation] do |form| %>
+<%= form_with model: [:admin, translation], class:"container m-3 mb-4 w-25" do |form| %>
   <%= form.hidden_field :treatment_id, value: treatment.id %>
-  <h4>Treatment : <%= treatment.treatmentName %></h4>
-  <div>
-    <%= form.label :translationLanguage, "Language" %>
-    <%= form.select :translationLanguage, ["French", "Malagasy"] %>
+  <div class="row mt-3">
+    <h4>Treatment : <%= treatment.treatmentName %></h4>
   </div>
-  <div>
-    <%= form.label :translationValue, "Translation" %>
-    <%= form.text_field :translationValue, placeholder: "Write the translation of the treatment here" %>
+  <div class="row mt-3">
+    <%= form.label :translationLanguage, "Language", class:"form-label" %>
+    <%= form.select :translationLanguage, [["French","fr"],["Malagasy","mg"]] %>
+  </div>
+  <div class="row mt-3">
+    <%= form.label :translationValue, "Translation", class:"form-label" %>
+    <%= form.text_field :translationValue, placeholder: "Write the translation of the treatment here", class:"form-control" %>
     <% translation.errors.full_messages_for(:translationValue).each do |message| %>
         <div><%= message %></div>
     <% end %>
   </div>
-  <div>
-    <%= form.submit "Translate" %>
+  <div class="row mt-3">
+    <%= form.submit "Translate", class:"btn btn-success" %>
   </div>
 <% end %>

@@ -1,13 +1,16 @@
-<h3>Hello ! Here you can see your selections by giving your name</h3>
-<%= form_with model: @patients, url:"/user/patients", method: :post do |form| %>
-  <div>
-    <%= form.label :patientName, value: "Your name" %><br>
-    <%= form.text_field :patientName, size: "40x5", placeholder: "Write your name here", required: true %>
+<div class="row m-3 mb-4">
+  <h1>Welcome</h1>
+  <p>Here you can see your treatments by giving your name</p>
+</div>
+<%= form_with model: @patients, url:"/user/patients", method: :post, class:"container m-3 mb-4 w-25" do |form| %>
+  <div class="row mt-3">
+    <%= form.label :patientName, value: "Your name", class:"form-label" %><br>
+    <%= form.text_field :patientName, size: "40x5", placeholder: "Write your name here", class:"form-control", required: true %>
   </div>
-  <div>
-    <%= form.submit "Show my selections" %>
+  <div class="row mt-3">
+    <%= form.submit "Show my treatments", class:"btn btn-success" %>
   </div>
 <% end %>
-<div>
-  <p>If it's the first time you are here, you can <%= link_to "select a treatment here", user_treatments_url() %></p>
+<div class="row m-3 mt-4">
+  <em>Or, if it's the first time you are here, you can <strong><%= link_to "select a treatment here", user_treatments_url(), class:"text-primary" %></strong></em>
 </div>

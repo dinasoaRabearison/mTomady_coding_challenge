@@ -1,16 +1,21 @@
-<h1>Your selections</h1>
-<p><%= @Patients.patientName %>, you have selected</p>
-<ol>
+<h1 class="row m-3 mb-4">Your treatments</h1>
+<p class="row m-3"><%= @Patients.patientName %>, you have selected</p>
+<ol class="list-group-flush list-group-numbered container w-25 m-3 mb-5">
   <% @Patients.selections.each do |selection| %>
-    <li>
-      <%= render("/user/treatments/treatmentName", translations: @translations, treatment: selection.treatment, locale: @locale) %> the 
-      <%= "%02d" % selection.created_at.day() %> 
-      <%= selection.created_at.strftime("%B") %> 
-      <%= selection.created_at.year() %> at 
-      <%= "%02d" % selection.created_at.hour() %>:<%= "%02d" % selection.created_at.min()%>
+    <li class="list-group-item d-flex justify-content-left align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">
+          <%= render("/user/treatments/treatmentName", translations: @translations, treatment: selection.treatment, locale: @locale) %>
+        </div>
+          The 
+          <%= "%02d" % selection.created_at.day() %> 
+          <%= selection.created_at.strftime("%B") %> 
+          <%= selection.created_at.year() %> at 
+          <%= "%02d" % selection.created_at.hour() %>:<%= "%02d" % selection.created_at.min()%>
+        </div>
       </li>
       
   <% end %>
 </ol>
-<%= link_to "Back to treatments selection list", user_treatments_url() %>
+<%= link_to "Back to treatments selection list", user_treatments_url(), class:"nav-link mb-5" %>
 

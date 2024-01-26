@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "clinic#index"
+  root "user/patients#index"
 
   get "/clinic", to: "clinic#index"
   

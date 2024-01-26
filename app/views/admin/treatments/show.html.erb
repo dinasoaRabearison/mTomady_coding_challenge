@@ -1,13 +1,18 @@
-<h3>
+<h1 class="row m-3 mb-4">
   <%= @treatment.treatmentName %>
-</h3>
-<h4>Translations</h4>
-<ul>
+</h1>
+<h4 class="row m-3">Translations</h4>
+<ul  class="list-group row m-3 w-50">
   <% @treatment.translations.each do |translation| %>
-    <li>
-      <%= translation.translationLanguage %> : <%= translation.translationValue %>
+    <li class="list-group-item border-0 p-0 w-100 h-100">
+      <ul class="list-group list-group-horizontal w-100 h-100 m-0">
+        <li class="list-group-item h-100 w-25 text-center"><%= translation.translationLanguage %></li>
+        <li class="list-group-item h-100 w-75"><%= translation.translationValue %><li>
+      </ul>
     </li>
   <% end %>
 </ul>
-<%= link_to "Add translation", new_admin_translation_url(id: @treatment.id) %>
-<%= link_to "Back to treatments list", admin_treatments_url() %>
+<div class="row m-3 w-50">
+  <%= link_to "<< Back to treatments list", admin_treatments_url(), class:"nav-link m-0 w-50 text-center" %>
+  <%= link_to "Add translation", new_admin_translation_url(id: @treatment.id), class:"btn btn-success m-0 w-50" %>
+</div>

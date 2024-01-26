@@ -3,6 +3,7 @@ class User::TreatmentsController < ApplicationController
     @categorys = Category.all
     @treatments = Treatment.all
     @locale = extract_locale_from_accept_language_header
+    puts "language #{@locale}"
     @translations = Translation.all
   end
   
